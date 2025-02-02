@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Background color for the entire page */
+}
+
+header, footer {
+    background-color: #9381FF; /* Background color for the content boxes */
+    border-radius: 15px; /* Rounded corners for the content boxes */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for better visibility */
+    margin: 2.5%; /* Space around the content boxes */
+    padding: 20px; /* Padding inside the content boxes */
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+header {
+    margin-top : 3%;
+}
+
+footer {
+    margin-bottom : 3%;
+}
+
+#aboutme, #products {
+    background-color: #9381FF; /* Background color for the content boxes */
+    border-radius: 15px; /* Rounded corners for the content boxes */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for better visibility */
+    margin: 20px; /* Space around the content boxes */
+    padding: 20px; /* Padding inside the content boxes */
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.imagesClass {
+    /*background-color: #FAF9F9; /* Background color for the content boxes */
+    background-color: #FAF9F9;
+    border-radius: 15px; /* Rounded corners for the content boxes */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for better visibility */
+    margin: 20px; /* Space around the content boxes */
+    padding: 20px; /* Padding inside the content boxes */
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+footer{
+    padding: 0;
+}
+
+#nav-bar {
+    display: flex;
+    gap : 2em;
+}
+
+#nav-bar .nav-link {
+    margin-left: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-weight : bold;
+    font-size: 1.8em;
+    text-shadow: 0.5px 0.5px 8px black;
+}
+
+#nav-bar .nav-link:hover {
+    text-decoration: underline;
+}
+
+h1{
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    border-top: 2px solid #ddd;
+}
+
+#contact-div {
+    display : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contact-handles a {
+    margin: 0 10px;
+}
+
+#contact-handles img {
+    width: 45px;
+    transition: transform 0.3s;
+}
+
+#contact-handles img:hover {
+    transform: scale(1.1);
+}
+
+.imagesClass{
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.imagesClass:hover {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+#backHome {
+    position: fixed;
+    width: 5%;
+    bottom: 20px;
+    right: 20px;
+    display: block;
+    background-color: transparent; /* Make background transparent */
+    border: none; /* Remove default border */
+    padding: 0; /* Remove default padding */
+    cursor: pointer;
+    border-radius: 5px; /* If you want rounded corners */
+    overflow: hidden; /* Important: Hide any content that overflows */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0.8;
+  }
+
+#backHome:hover {
+    transition: all 0.2s ease-in-out;
+    width:5.5%;
+    border-radius: 50%;
+    box-shadow: 4px 4px 8px black; /* Darker blue on hover */
+} 

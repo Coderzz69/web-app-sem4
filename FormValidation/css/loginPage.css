@@ -1,0 +1,103 @@
+.main-class {
+    margin-top: 7%;
+    border-bottom: 2px solid black;
+    max-width: 1320px;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    align-self: center;
+}
+
+.attr-section {
+    border: 2px solid #ccc;
+    width: 40vw;
+    border-radius: 20px;
+    padding: 2% 7%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*border: 2px solid black;*/
+}
+
+form {
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.attr-section input {
+    margin-bottom: 10px;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5%;
+    width: 80%;
+    font-size: large;
+}
+
+.input-group {
+    width: 90%;
+}
+
+.input-group input {
+    width: 100%;
+    margin-right: 10px;
+}
+
+html {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#submit-button, #reset-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+    width: 19.5vw;
+    color: white;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 18%;
+}
+
+#submit-button:hover, #reset-button:hover {
+    background-color: #45a049;
+}
+
+.password-verification {
+    position: static;
+    margin-top: 15%;
+    margin-left: 15%;
+    border-bottom: 2px solid black;
+    background-image: linear-gradient(to right, red, yellow); 
+    padding: 2.5%;
+    border-radius: 15px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.p-tags svg {
+    vertical-align: middle; /* Align SVG with the middle of the text */
+    margin-right: 5px; /* Add some space between SVG and text */
+}

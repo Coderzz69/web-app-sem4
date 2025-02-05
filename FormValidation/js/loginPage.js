@@ -49,45 +49,53 @@ function calculateAge(dateOfBirth) {
     return age;
 }
 
+const validationRules = {
+    firstName: { regex: firstNameRegEx, errorSpan: firstNameSpan, message: 'First Name Verified' },
+    lastName: { regex: lastNameRegEx, errorSpan: lastNameSpan, message: 'Last Name Verified' },
+    email: { regex: emailRegEx, errorSpan: emailSpan, message: 'Valid email Verified' },
+    password: { regex: passwordRegEx, errorSpan: passwordSpan, message: 'Valid password Verified' },
+    confirmPassword: { match: passwordInput, errorSpan: confirmPasswordSpan, message: 'Passwords must match' },
+    phone: { regex: phoneRegEx, errorSpan: phoneSpan, message: 'Phone Number Verified' },
+    dob: { custom: calculateAge, errorSpan: dobSpan, message: 'Date of birth Verified', minAge: 18 }
+};
+
+function validateInput(input, rule) {
+    if (rule.regex && rule.regex.test(input.value)) {
+        rule.errorSpan.innerHTML = getVerifiedIcon() + rule.message;
+        return true;
+    } else if (rule.match && input.value === rule.match.value && input.value !== '') {
+        rule.errorSpan.innerHTML = getVerifiedIcon() + rule.message;
+        return true;
+    } else if (rule.custom && rule.custom(input.value) >= rule.minAge) {
+        rule.errorSpan.innerHTML = getVerifiedIcon() + rule.message;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getVerifiedIcon() {
+    return '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>';
+}
+
 submitButton.addEventListener("click", () => {
+    let isValidated = true;
 
-
-    isValidated = true;
-
-    if (firstNameRegEx.test(firstNameInput.value)){
-       firstNameSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>First Name Verified'
-    }else isValidated = false;
-
-    if (lastNameRegEx.test(lastNameInput.value)){
-        lastNameSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>Last Name Verified'
-    }else isValidated = false;
-
-    if (emailRegEx.test(emailInput.value)){
-        emailSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>Valid email Verified'
-    }else isValidated = false;
-
-    if (passwordRegEx.test(passwordInput.value)){
-        passwordSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>Valid email Verified'
-    }else isValidated = false;
-
-    if (passwordInput.value == confirm_passwordInput.value){
-        confirmPasswordSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>Passwords must match'
-    }else isValidated = false;
-
-    if (phoneRegEx.test(phoneInput.value)){
-        phoneSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>Phone Number Verified'
-    }else isValidated = false;
-
-    if (calculateAge(dobInput.value) >= 18){
-        dobSpan.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>Date of birth Verfied'
-    }else isValidated = false;
-
-    if (isValidated){
-        document.getElementById("successful-submission").innerText = 'Account Created Successfully !!';
+    for (const [key, rule] of Object.entries(validationRules)) {
+        const input = document.getElementById(key);
+        if (!validateInput(input, rule)) {
+            isValidated = false;
+        }
     }
 
+    if (isValidated) {
+        document.getElementById("successful-submission").innerText = 'Account Created Successfully !!';
+    }
 });
 
 resetButton.addEventListener('click', () => {
     document.getElementById("successful-submission").innerText = '';
-})
+    for (const rule of Object.values(validationRules)) {
+        rule.errorSpan.innerHTML = getVerifiedIcon() + rule.message;
+    }
+});

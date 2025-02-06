@@ -20,7 +20,7 @@ const phoneSpan = document.getElementById("error-phone");
 
 const firstNameRegEx = /^[A-Z][a-z]+$/;
 const lastNameRegEx = /^[A-Z][a-z]+$/;
-const emailRegEx = /^[a-z]\w*@[a-z]+\.[a-z]+$/;
+const emailRegEx = /^[a-z]\w*@[a-z]+\.[a-z]{2, 4}$/;
 const passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\!\@\#\$\%\^\&\*\(\)~`]).{8,}$/;
 const phoneRegEx = /^\+91[6-9][0-9]{9}$/;
 

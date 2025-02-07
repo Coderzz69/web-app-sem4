@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.getElementById('add-btn');
-    const deleteButton = document.getElementsByClassName('x-btn');
     const todoInput = document.querySelector('.todo-input');
     const todoList = document.querySelector('.todo-list');
-
-    console.log(deleteButton)
 
     addButton.addEventListener('click', () => {
         const todoText = todoInput.value.trim();
@@ -24,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             xBtn.className = 'x-btn';
             xBtn.textContent = 'X';
             xBtn.addEventListener('click', () => {
-                todoItem.remove();
+                if (todoCheckbox.checked) {
+                    todoItem.remove();
+                }
             });
 
             todoItem.appendChild(todoCheckbox);
@@ -34,17 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
             todoInput.value = '';
         }
-    });
-
-    Array.from(deleteButton).forEach(button => {
-        button.addEventListener('click', () => {
-
-            const checkedItems = document.querySelectorAll('.todo-checkbox:checked');
-
-            checkedItems.forEach(item => {
-                if (item.parentElement.isEqualNode(button.parentElement)) 
-                    item.parentElement.remove();
-            });
-        });
     });
 });

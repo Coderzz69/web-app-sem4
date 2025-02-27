@@ -1,0 +1,14 @@
+:root {
+    --background-color : #070707;
+    --secondary-color : #1481BA;
+    --accent-color : #11B5E4;
+    --tertiary-color : #D4F8FF;
+    --text-color : #FFFFFF;
+}
+
+.listItem-div {
+    background-color: yellow;
+    border: 2px solid black;
+    max-width : 60%;
+    
+}
